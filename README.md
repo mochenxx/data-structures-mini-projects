@@ -1,4 +1,4 @@
-# data-structures-mini-projects
+# Data Structures Mini Projects
 Data structures mini projects for learning sharing.
 
 ## Table of Contents
