@@ -4,7 +4,7 @@ Data structures mini projects for learning sharing.
 ## Table of Contents
 
 - [Compatability](#compatability)
-- [Applied Projects](#appliedprojects)
+- [Projects](#projects)
 - [Contact](#contact)
 
 ## Compatability
@@ -12,7 +12,7 @@ Data structures mini projects for learning sharing.
 - Operating System: Windows 10
 - Compiler: Microsoft Visual C++ 2019
 
-## Applied Projects
+## Projects
 ### Sorting project
 
 - This program creates four standard sorting algorithms: 
