@@ -29,10 +29,6 @@ Data structures mini projects for learning sharing.
 ### Simple list project
 
 This projects achieves two goals in terms of simple lists, and implements frequently-used operations for lists.
-
-- C Source Code
-  * [Simple list of integers](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Simple-List/01-Simple-List-of-Integers)
-  * [Enhanced simple list of structures](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Simple-List/02-Simple-List-of-Structures)
   
 __Goal-1: Create a simple list of integers__
 - This list stores a list of integer values given by user input.
@@ -63,6 +59,10 @@ __Goal-2: Enhance simple list__
   * Fetch records before a time (e.g., 16:00)
   * Fetch records between a time interval (e.g., b/w 11:00 and 12:00)
 
+
+__C Source Code__
+  * [Simple list of integers](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Simple-List/01-Simple-List-of-Integers)
+  * [Enhanced simple list of structures](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Simple-List/02-Simple-List-of-Structures)
 ## Contact
 
 You can reach me at mo.chen19@outlook.com for technical support or feel free to open an issue [here](https://github.com/mochenxx/data-structures-mini-projects/issues) :)
