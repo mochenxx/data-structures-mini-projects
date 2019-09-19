@@ -23,7 +23,7 @@ Data structures mini projects for learning sharing.
 - Optimized approaches are added to improve sorting performance in terms of time complexity
 - Program can sort array through two ways:
   * Input an integer array from keyboard
-  * Read stored arrays from a txt file
+  * Read user-defined arrays from a csv. file
 - C Source Code: [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
 
 ### Simple list project
