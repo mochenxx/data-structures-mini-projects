@@ -10,7 +10,14 @@
 
 int* inputList(unsigned int* size, unsigned int* count)
 {
-	unsigned int i;
+	unsigned int i, num = 0;
+
+	// Arguments consistency checks
+	if ((NULL == size) || (NULL == count)) {
+		printf("Invalid arguments %u, %u", NULL == size, NULL == count);
+		return NULL;
+	}
+
 	*size = 0;
 	*count = 0;
 	int buffer = 0;
@@ -21,9 +28,25 @@ int* inputList(unsigned int* size, unsigned int* count)
 
 	/* Allocate dynamic memory to list pointer */
 	int* list = malloc((*size) * sizeof(int));
+	
+	// Return values consistency checks
+	if (NULL == list) {
+		printf("\nNot enough memory\n");
+		return NULL;
+	}
+
+	/* Initialize list */
+	for (i = 0; i < *size; i++)
+	{
+		list[i] = 0;
+	}
 
 	/* Input element one by one */
-	for (i = 0; i < *size; i++)
+	printf("\nHow many elements do you want to initialize?");
+	printf("\nEnter a number : ");
+	scanf_s("%d", &num);
+
+	for (i = 0; i < num; i++)
 	{
 		printf("\nEnter the element No. %u: ", i + 1);
 		scanf_s("%d", &buffer);
@@ -43,12 +66,18 @@ int* inputList(unsigned int* size, unsigned int* count)
 		list[i] = buffer;
 	}
 
-	*count = *size;
+	*count = num;
 	return list;
 }
 
 bool isUnique(int* list, unsigned int count, int item)
 {
+	// Arguments consistency checks
+	if (NULL == list) {
+		printf("Invalid arguments");
+		return false;
+	}
+
 	unsigned int i;
 	for (i = 0; i < count; i++)
 	{
@@ -57,6 +86,7 @@ bool isUnique(int* list, unsigned int count, int item)
 			return false;
 		}
 	}
+
 	return true;
 }
 
@@ -64,10 +94,17 @@ void addItem(int* list, unsigned int size, unsigned int* count, int new_item)
 {
 	unsigned int i;
 
+	// Arguments consistency checks
+	if ((NULL == list) || (NULL == count))
+	{
+		printf("\nInvalid arguments %d, %u", NULL == list, NULL == count);
+		return;
+	}
+
 	/* Detect if list is full */
 	for (i = 0; i < size; i++)
 	{
-		if ( '\0' == list[i])
+		if ( 0 == list[i])
 		{
 			list[i] = new_item;
 			printf("\n==>You have added element '%d' to the list!", list[i]);
@@ -77,25 +114,17 @@ void addItem(int* list, unsigned int size, unsigned int* count, int new_item)
 	}
 }
 
-bool isEmpty(int* list, unsigned int count)
-{
-	unsigned int i;
-
-	/* Check if list is empty */
-	for (i = 0; i < count; i++)
-	{
-		if (list[i] != '\0')
-		{
-			return false;
-		}
-	}
-
-	return true;
-}
-
 bool isExisting(int* list, unsigned int count, int item)
 {
 	unsigned int i;
+
+	// Arguments consistency checks
+	if (NULL == list)
+	{
+		printf("\nInvalid argument");
+		return false;
+	}
+
 	/* Check if item exists */
 	for (i = 0; i < count; i++)
 	{
@@ -112,6 +141,13 @@ void deleteItem(int* list, unsigned int* count, int delete_item)
 {
 	unsigned int i, j;
 	unsigned int item_exist = 0;
+
+	// Arguments consistency checks
+	if ((NULL == list) || (NULL == count))
+	{
+		printf("\nInvalid arguments %d, %u", NULL == list, NULL == count);
+		return;
+	}
 
 	/* Check if item to be deleted exists */
 	for (i = 0; i < *count; i++)
@@ -132,11 +168,14 @@ void deleteItem(int* list, unsigned int* count, int delete_item)
 		}
 	}
 
+	/* If item dose not exits */
 	if (item_exist != 1)
 	{
+		/* Print error message */
 		printf("\n [ERROR] Input element doesn't exist in the list!");
 	}
 
+	/* List count decrement */
 	(*count)--;
 	return;
 }
@@ -145,7 +184,20 @@ void printList(int* list, unsigned int count)
 {
 	unsigned int i;
 
-	//printf("\n");
+	// Arguments consistency checks
+	if (NULL == list)
+	{
+		printf("\nInvalid argument");
+		return;
+	}
+
+	if (0 == count)
+	{
+		printf(" [ List is empty! ]\n");
+		return;
+	}
+
+	// If input list pointer is not NULL, then print the whole list
 	for (i = 0; i < count; i++)
 	{
 		printf("%2d  ", list[i]);
@@ -157,6 +209,14 @@ void clearList(int* list, unsigned int* count)
 {
 	unsigned int i;
 
+	// Arguments consistency checks
+	if ((NULL == list) || (NULL == count))
+	{
+		printf("\nInvalid arguments %d, %u", NULL == list, NULL == count);
+		return;
+	}
+
+	// If input list pointer is not NULL, then clear all elements in the list
 	for (i = 0; i < *count; i++)
 	{
 		list[i] = 0;
@@ -165,16 +225,23 @@ void clearList(int* list, unsigned int* count)
 	*count = 0;
 }
 
-int sum(int* list, unsigned int count)
+int sum(int* list, unsigned int count, int* sum_val)
 {
-	int sum = 0;	// initialize sum
+	*sum_val = 0;	// initialize sum
 	unsigned int i;
+
+	// Arguments consistency checks
+	if ((NULL == list) || (NULL == sum_val))
+	{
+		printf("\nInvalid arguments %d, %d\n", NULL == list, NULL == sum_val);
+		return -1;
+	}
 
 	// Iterate all elements and add them to sum
 	for (i = 0; i < count; i++)
 	{
-		sum += list[i];
+		*sum_val += list[i];
 	}
 
-	return sum;
+	return 0;
 }

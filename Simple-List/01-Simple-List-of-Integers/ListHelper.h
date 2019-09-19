@@ -38,16 +38,6 @@ int* inputList(unsigned int* size, unsigned int* count);
 bool isUnique(int* list, unsigned int count, int item);
 
 /*
- * This function checks if list is empty
- *
- * @param[in] list - pointer to list
- * @param[in] count - count of the list (number of elements)
- *
- * @returns - boolean value true if list is empty; Otherwise, returns false.
- */
-bool isEmpty(int* list, unsigned int count);
-
-/*
  * This function checks if input item is existing in the list
  *
  * @param[in] list - pointer to list
@@ -108,6 +98,6 @@ void clearList(int* list, unsigned int* count);
  *
  * @returns - None
  */
-int sum(int* list, unsigned int count);
+int sum(int* list, unsigned int count, int* sum_val);
 
 #endif // _LISTHELPER_H_

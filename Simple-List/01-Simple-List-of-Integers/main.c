@@ -19,6 +19,7 @@ int main(void)
 {
 	unsigned int size = 0, count = 0;
 	int new_item = 0;
+	int sum_val = 0, return_val = 0;
 	char choice = 0;
 	int* list;
 
@@ -39,7 +40,7 @@ int main(void)
 		/* Switch between different cases based on choice */
 		switch (choice)
 		{
-			// Add item to list
+			// 1. Add item to list
 			case '1':	
 			{
 				/* Check if list is full */
@@ -76,7 +77,7 @@ int main(void)
 				break;
 			}
 
-			// Remove item from list
+			// 2. Remove item from list
 			case '2':	
 			{
 				/* Check if list is empty */
@@ -111,7 +112,7 @@ int main(void)
 				break;
 			}
 
-			// Clear all elements
+			// 3. Clear all elements
 			case '3':
 			{
 				clearList(list, &count);
@@ -125,17 +126,25 @@ int main(void)
 				break;
 			}
 
-			// Get sum of all elements in the list
+			// 4. Get sum of all elements in the list
 			case '4':
 			{
-				printf("\n\n Sum of given list is: %d.\n", sum(list, count));
-				
-				system("pause");
+				return_val = sum(list, count, &sum_val);
 
+				if (return_val != 0)
+				{
+					printf("\n[ERROR] Invalid arguments for pointers\n");
+				}
+				else
+				{
+					printf("\n\n Sum of given list is: %d.\n", sum_val);
+				}
+
+				system("pause");
 				break;
 			}
 
-			// Print list
+			// 5. Print list
 			case '5':
 			{
 				printf("\n\n Printing given List: \n");
@@ -146,7 +155,7 @@ int main(void)
 				break;
 			}
 
-			// Exit the program
+			// 6. Exit the program
 			case '6':
 			{
 				exit(1);
