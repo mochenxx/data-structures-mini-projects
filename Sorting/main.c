@@ -25,13 +25,14 @@ int main(void) {
 
 	int* arr1;				// pointer to input array
 	unsigned int size = 0;	// number of elements in the input array
-	unsigned int i, j;
+	unsigned int i, j, lines_count = 0;
 	int key_code;			// User input from keyboard
 
 	char sort_method = 0;
 	char sort_name[50] = { 0 };
-	int** ptr_arr2;
+	
 	int* arr2;
+	Array* arr_from_file;
 	
 	do 
 	{
@@ -61,43 +62,44 @@ int main(void) {
 
 			case KEY_TWO:
 			{
-				ptr_arr2 = readArrayFile();
+				arr_from_file = readArrayFile2(&lines_count);
 
 				displaySortMethod(&sort_method);
 
 				printf("\n==> Data from files:");
 
-				for (i = 0; i < ROW; i++)
+				for (i = 0; i < lines_count; i++)
 				{
-					arr2 = malloc(sizeof(int) * COL);
+					arr2 =(int*) malloc(sizeof(int) * arr_from_file[i].num_items);
 
-					for (j = 0; j < COL; j++)
+					for (j = 0; j < arr_from_file[i].num_items; j++)
 					{
-						arr2[j] = ptr_arr2[i][j];
+						arr2[j] = arr_from_file[i].arr[j];
 					}
 
 					/* Print array before sort */
-					printf("\n+------------------------ Line No. %2d -----"
+					printf("\n+------------------------ Line No. %d -----"
 							 "------------------+", i+1);
 					printf("\nArray before sort:\n");
-					printArray(arr2, COL);
+					printArray(arr2, arr_from_file[i].num_items);
 
 					/* Choose an sort method and implement it */
 					printf("\n");
-					chooseSortMethod(arr2, COL, sort_method);
+					chooseSortMethod(arr2, arr_from_file[i].num_items, sort_method);
 					printf("\n+--------------------------------------------"
 						"----------------+\n");
+
+					free(arr2);
 				}
 
 				sort_method = 0;
 
-				for (i = 0; i < ROW; i++)
+				for (i = 0; i < lines_count; i++)
 				{
-					free(ptr_arr2[i]);
+					free(arr_from_file[i].arr);
 				}
 
-				free(ptr_arr2);
-				free(arr2);
+				free(arr_from_file);
 
 				system("pause");
 

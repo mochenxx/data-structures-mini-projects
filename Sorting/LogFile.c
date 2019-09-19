@@ -14,28 +14,20 @@
  */
 #pragma warning(disable : 4996)
 
-int** readArrayFile(void)
+Array* readArrayFile2(unsigned int* lines_count)
 {
-	unsigned int i, j;
-	int** ptr_arr;	// pointer to pointer of 2D int array
-
-	/* Allocate memory for ptr_arr */
-	// First - allocate memory for rows
-	ptr_arr = malloc(sizeof(int*) * ROW);
-
-	if (ptr_arr)
-	{
-		//**ptr_arr = 0;
-		// Second - allocate memory for columns in each row
-		for (i = 0; i < ROW; i++)
-		{
-			ptr_arr[i] = malloc(sizeof(int) * COL);
-		}
-	}
+	unsigned int i = 0, j = 0;
+	unsigned int items_count = 0; 
+	char buffer[BSIZE] = { 0 };
+	char* token;
 	
+	*lines_count = 0;
+
+	Array* ptr_arrays;	// pointer to Array struct
+	char ch;
 
 	/* Read array file */
-	FILE* fp = fopen(ARRAY_FILENAME, "r");
+	FILE* fp = fopen(CSV_FILENAME, "r");
 
 	/* Check if file can be opened */
 	if (NULL == fp)
@@ -45,25 +37,101 @@ int** readArrayFile(void)
 		exit(1);
 	}
 
-	/* Process the data */
-	for (i = 0; i < ROW; i++)
+	while ((ch = fgetc(fp)) != EOF)
 	{
-		for (j = 0; j < COL; j++)
+		if ('\n' == ch)
 		{
-			if (ptr_arr && ptr_arr[i])
-			{
-				/* Get element one by one from each row */
-				if (fscanf(fp, "%d", &ptr_arr[i][j]) != 1)
-				{
-					exit(1);
-				}
-			}
-			
+			(*lines_count)++;
 		}
 	}
-	
+	(*lines_count)++;
+
+	// First - allocate memory for array rows
+	ptr_arrays =(Array*)malloc(sizeof(Array) * (*lines_count));
+
+	// Check if the memory has been successfully 
+	// allocated by malloc or not 
+	if (ptr_arrays == NULL)
+	{
+		printf("\n[ERROR] Not so much memory for arrays from file!\n");
+		return NULL;
+	}
+	else
+	{
+		// Memory has been successfully allocated
+		// Rewind the file
+		rewind(fp);
+
+		/* Process the data per row */
+		while (fgets(buffer, BSIZE, fp))
+		{
+			items_count = 0;
+
+			/* Get the first token */
+			token = strtok(buffer, ",");
+			items_count++;
+
+			while (token != NULL)
+			{
+				token = strtok(NULL, ",");
+				if (NULL == token)
+				{
+					break;
+				}
+				items_count++;
+			}
+
+			ptr_arrays[i].num_items = items_count;
+			i++;
+		}
+
+		// Second - allocate memory for columns in each row
+		for (i = 0; i < *lines_count; i++)
+		{
+			ptr_arrays[i].arr =(int*)malloc(sizeof(int) * (ptr_arrays[i].num_items));
+		}
+	}
+
+	rewind(fp);
+
+	/* Add elements to each array per line */
+	for (i = 0; i < *lines_count; i++)
+	{
+		if (NULL == ptr_arrays || NULL == ptr_arrays[i].arr)
+		{
+			printf("\n[ERROR] Not such memory!\n");
+			return NULL;
+		}
+		else
+		{
+			if (fgets(buffer, BSIZE, fp))
+			{
+				j = 0;
+
+				/* Get the first token */
+				token = strtok(buffer, ",");
+
+				ptr_arrays[i].arr[j] = atoi(token);
+				j++;
+
+				/* Store the rest tokens as elements */
+				while (token != NULL && j < ptr_arrays[i].num_items)
+				{
+					token = strtok(NULL, ",");
+					if (NULL == token)
+					{
+						break;
+					}
+
+					ptr_arrays[i].arr[j] = atoi(token);
+					j++;
+				}
+			}
+		}
+	}
+
 	fclose(fp);
-	
-	// Return pointer to pointer of 2d integer array
-	return ptr_arr;
+
+	// Return pointer to structure Array
+	return ptr_arrays;
 }
