@@ -14,16 +14,26 @@
 #include <conio.h>
 #include <string.h>
 
-#define ARRAY_FILENAME "arraysdata.txt"
-#define BSIZE 50
-#define ROW 20
-#define COL 20
+#define CSV_FILENAME "arrays.csv"
+#define BSIZE 500
+#define NUM_ITEMS 50
+
+//#define ROW 20
+//#define COL 20
+
+typedef struct
+{
+	int* arr;
+	unsigned int num_items;
+} Array;
 
 /*
  * This function reads data from array file
  *
- * returns - nothing
+ * @param[in] lines_count - pointer to the number of lines from the file
+ *
+ * @returns - a reference (pointer to structure Array) which contains
+ *			  integer array per line from the file
  */
-int** readArrayFile(void);
-
+Array* readArrayFile2(unsigned int* lines_count);
 #endif // _LOGFILE_H_
