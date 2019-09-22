@@ -5,6 +5,7 @@
  *
  * Description: Header file for structure declaration
  */
+
 #ifndef _STRUCTURE_H_
 #define _STRUCTURE_H_
 

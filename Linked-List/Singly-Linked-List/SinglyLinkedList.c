@@ -338,26 +338,13 @@ void insertAtPosition(struct Node** head_ref, int new_data, unsigned int k)
 	/* 1. Check if input position is the head */
 	if (1 == k)
 	{
-		/* Allocate memory for new node */
-		temp = (struct Node*)malloc(sizeof(struct Node));
-
-		/* Check if there is memory for new node */
-		if (NULL == temp)
-		{
-			printf("\n[ERROR] No more memory for the new node!\n");
-			return;
-		}
-		else
-		{
-			// Put in the new data and link
-			temp->info = new_data;
-			temp->link = *head_ref;
-			*head_ref = temp;
-		}
+		insertAtFront(head_ref, new_data);
+		return;
 	}
 	else if (NULL == *head_ref)
 	{
-		printf("\n[ERROR] List is empty!\n");
+		printf("\n[ERROR] List is empty. " 
+				 "Data can only be insert at position 1.\n");
 		return;
 	}
 
