@@ -327,60 +327,53 @@ int main(void)
 			/* 9. Insert a node at a given position */
 			case 9:
 			{
-				/* Check if head is NULL */
-				if (NULL == head)
-				{
-					printf("\n[ERROR] List is empty!\n");
-				}
-				else
-				{
-					/* Get the element to be inserted */
-					do
-					{
-						printf("\nEnter the element to be inserted : ");
-
-						/* Check if input is valid */
-						if (scanf("%d", &data) != 1)
-						{
-							(void)getchar();
-							printf("\n[ERROR] Input must be integer.");
-							continue;
-						}
-
-						/* Check if entered number is unique */
-						if (!isUnique(head, data))
-						{
-							/* If not unique, then print error */
-							printf("\n[ERROR] Element must be unique!");
-							continue;
-						}
-						else 
-						{
-							break;
-						}
-					} while (1);
-					
-					/* Get the position k from program input */
-					do
-					{
-						printf("\nEnter the position at which to insert : ");
-
-						/* Check if input is valid */
-						if (scanf("%d", &k) != 1)
-						{
-							(void)getchar();
-							printf("\n[ERROR] Input must be integer.");
-							continue;
-						}
-						else
-						{
-							break;
-						}
-					} while (1);
 				
-					/* Insert new node at position k */
-					insertAtPosition(&head, data, k);
-				}
+				/* Get the element to be inserted */
+				do
+				{
+					printf("\nEnter the element to be inserted : ");
+
+					/* Check if input is valid */
+					if (scanf("%d", &data) != 1)
+					{
+						(void)getchar();
+						printf("\n[ERROR] Input must be integer.");
+						continue;
+					}
+
+					/* Check if entered number is unique */
+					if (!isUnique(head, data))
+					{
+						/* If not unique, then print error */
+						printf("\n[ERROR] Element must be unique!");
+						continue;
+					}
+					else 
+					{
+						break;
+					}
+				} while (1);
+					
+				/* Get the position k from program input */
+				do
+				{
+					printf("\nEnter the position at which to insert : ");
+
+					/* Check if input is valid */
+					if (scanf("%d", &k) != 1)
+					{
+						(void)getchar();
+						printf("\n[ERROR] Input must be integer.");
+						continue;
+					}
+					else
+					{
+						break;
+					}
+				} while (1);
+				
+				/* Insert new node at position k */
+				insertAtPosition(&head, data, k);
 
 				system("pause");
 				break;

@@ -39,7 +39,7 @@ void printReverse(struct Node* head);
  *
  * @param[in] head - pointer to the head of the list
  *
- * @returns - integer 0 if there is no exception; Otherwise, it returns -1.
+ * @returns - number of nodes if there is no exception; Otherwise, it returns -1.
  */
 int countNode(struct Node* head);
 
@@ -109,7 +109,7 @@ void insertAtPosition(struct Node** head_ref, int new_data, unsigned int k);
  * This function deletes a node having value data
  *
  * @param[in] head_ref - a reference (pointer to pointer) to the head of a list
- * @param[in] data - data to be deleted
+ * @param[in] x - data to be deleted
  *
  * @returns - None
  */
