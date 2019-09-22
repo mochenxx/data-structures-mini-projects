@@ -19,4 +19,3 @@ struct Node
 };
 
 #endif // !_STRUCTURE_H_
-
