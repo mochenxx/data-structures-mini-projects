@@ -26,11 +26,11 @@ Data structures mini projects for learning sharing.
   * Read user-defined arrays from a csv. file
 - C Source Code: [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
 
-### Simple list project
+### Array project
 
 This projects achieves two goals in terms of simple lists, and implements frequently-used operations for lists.
   
-#### Goal-1: Create a simple list of integers
+#### Goal-1: Create an array of integers
 - This list stores a list of integer values given by user input.
 - Available operations are as follows: 
   * Add an element to the list - `Input element must be unique`
@@ -60,9 +60,9 @@ This projects achieves two goals in terms of simple lists, and implements freque
   * Fetch records between a time interval (e.g., b/w 11:00 and 12:00)
 
 #### C Source Code
-  * [Simple list of integers](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Simple-List/01-Simple-List-of-Integers)
-  * [Enhanced simple list of structures](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Simple-List/02-Simple-List-of-Structures)
-  
+  * [Array of integers](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Array/01-Array-of-Integers)
+  * [Enhanced array of structures](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Array/02-Array-of-Structures)
+
 ### Linked List
 
 This project implements two type of linked list: singly linked list and doubly linked list.
@@ -89,6 +89,14 @@ struct Node
     int data;             // Data part
     struct Node* next;    // Pointer to next node in DLL
     struct Node* prev;    // Pointer to previous node in DLL
+};
+```
+- Also, the program defines a doubly linked list structure `Dllist` which contains pointer to head node and pointer to tail node.
+```
+/* Doubly linked list structure */
+struct Dllist {
+	struct Node* head;	// Pointer to head node in DLL
+	struct Node* tail;	// Pointer to tail node in DLL
 };
 ```
 
