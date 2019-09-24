@@ -10,33 +10,34 @@
 #include "FreeList.h"
 #include "structures.h"
 
-void freeList(struct Node** head_ref)
+void freeList(struct Dllist* dllist)
 {
 	struct Node* temp;
 
 	/* Check if head_ref is NULL */
-	if (NULL == head_ref)
+	if (NULL == dllist)
 	{
 		printf("\nInvalid argument!\n");
 		return;
 	}
 
 	/* Check if head is NULL, if yes the list is empty, then we just return*/
-	if (NULL == *head_ref)
+	if (NULL == dllist->head)
 	{
 		printf("\nList is empty. No memory needed to free.\n");
 		return;
 	}
 
-	while (NULL != *head_ref)
+	while (NULL != dllist->head)
 	{
 		// Store head in the temp pointer
-		temp = *head_ref;
+		temp = dllist->head;
 
 		// Make head points to the next node in the list
-		*head_ref = (*head_ref)->next;
+		dllist->head = dllist->head->next;
 		free(temp);
 	}
 
-	*head_ref = NULL;
+	dllist->head = NULL;
+	dllist->tail = NULL;
 }

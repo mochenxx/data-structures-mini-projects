@@ -29,7 +29,7 @@
 int main(void)
 {
 	/* Start with the empty list */
-	struct Node* head = NULL;
+	struct Dllist* dllist = NULL;
 	int choice;				// input choice for menu
 	int data;				// desired element value
 	int x;					// element value at specific position in the list
@@ -37,6 +37,8 @@ int main(void)
 	int return_val = 0;		// flag indicating if there is an error
 	int sum_val = 0;		// Sum of all elements in the list
 
+	dllist = createDllist();
+	
 	while (1)
 	{
 		/* Display main menu */
@@ -56,7 +58,7 @@ int main(void)
 			/* 1. Display list */
 			case 1:
 			{
-				printList(head);
+				printList(dllist);
 
 				system("pause");
 				break;
@@ -66,7 +68,7 @@ int main(void)
 			case 2:
 			{
 				/* Count and display the number of nodes */
-				countNode(head);
+				countNode(dllist);
 
 				system("pause");
 				break;
@@ -76,7 +78,7 @@ int main(void)
 			case 3:
 			{
 				/* Check if head is NULL */
-				if (NULL == head)
+				if (NULL == dllist->head)
 				{
 					printf("\n[ERROR] List is empty!\n");
 				}
@@ -101,7 +103,7 @@ int main(void)
 					} while (1);
 
 					/* Traverse the list till find the desired data */
-					search(head, data);
+					search(dllist, data);
 				}
 
 				system("pause");
@@ -125,7 +127,7 @@ int main(void)
 					}
 
 					/* Check if entered number is unique */
-					if (!isUnique(head, data))
+					if (!isUnique(dllist, data))
 					{
 						/* If not unique, then print error */
 						printf("\n[ERROR] Element must be unique.");
@@ -138,7 +140,7 @@ int main(void)
 				} while (1);
 
 				/* Insert input element to the front of the list*/
-				insertAtFront(&head, data);
+				insertAtFront(dllist, data);
 
 				system("pause");
 				break;
@@ -161,7 +163,7 @@ int main(void)
 					}
 
 					/* Check if entered number is unique */
-					if (!isUnique(head, data))
+					if (!isUnique(dllist, data))
 					{
 						/* If not unique, then print error */
 						printf("\n[ERROR] Element must be unique.");
@@ -174,7 +176,7 @@ int main(void)
 				} while (1);
 
 				/* Insert input element to the end of the list */
-				insertAtEnd(&head, data);
+				insertAtEnd(dllist, data);
 
 				system("pause");
 				break;
@@ -184,7 +186,7 @@ int main(void)
 			case 6:
 			{
 				/* Check if head is NULL */
-				if (NULL == head)
+				if (NULL == dllist->head)
 				{
 					printf("\n[ERROR] List is empty!\n");
 				}
@@ -204,7 +206,7 @@ int main(void)
 						}
 
 						/* Check if entered number is unique */
-						if (!isUnique(head, data))
+						if (!isUnique(dllist, data))
 						{
 							/* If not unique, then print error */
 							printf("\n[ERROR] Element must be unique!");
@@ -235,7 +237,7 @@ int main(void)
 						}
 					} while (1);
 					/* Insert input data after element x */
-					insertAfter(&head, data, x);
+					insertAfter(dllist, data, x);
 				}
 
 				system("pause");
@@ -246,7 +248,7 @@ int main(void)
 			case 7:
 			{
 				/* Check if head is NULL */
-				if (NULL == head)
+				if (NULL == dllist->head)
 				{
 					printf("\n[ERROR] List is empty!\n");
 				}
@@ -266,7 +268,7 @@ int main(void)
 						}
 
 						/* Check if entered number is unique */
-						if (!isUnique(head, data))
+						if (!isUnique(dllist, data))
 						{
 							/* If not unique, then print error */
 							printf("\n[ERROR] Element must be unique.");
@@ -298,7 +300,7 @@ int main(void)
 					} while (1);
 
 					/* Insert input data before element x */
-					insertBefore(&head, data, x);
+					insertBefore(dllist, data, x);
 				}
 
 				system("pause");
@@ -323,7 +325,7 @@ int main(void)
 					}
 
 					/* Check if entered number is unique */
-					if (!isUnique(head, data))
+					if (!isUnique(dllist, data))
 					{
 						/* If not unique, then print error */
 						printf("\n[ERROR] Element must be unique!");
@@ -354,7 +356,7 @@ int main(void)
 				} while (1);
 
 				/* Insert new node at position k */
-				insertAtPosition(&head, data, k);
+				insertAtPosition(dllist, data, k);
 
 				system("pause");
 				break;
@@ -364,7 +366,7 @@ int main(void)
 			case 9:
 			{
 				/* Check if head is NULL */
-				if (NULL == head)
+				if (NULL == dllist->head)
 				{
 					printf("\n[ERROR] List is empty!\n");
 				}
@@ -389,7 +391,7 @@ int main(void)
 					} while (1);
 
 					/* Delete input element x from the list */
-					deleteNode(&head, x);
+					deleteNode(dllist, x);
 				}
 
 				system("pause");
@@ -400,14 +402,14 @@ int main(void)
 			case 10:
 			{
 				/* Check if head is NULL */
-				if (NULL == head)
+				if (NULL == dllist->head)
 				{
 					printf("\n[ERROR] List is empty!\n");
 				}
 				else
 				{
 					/* Reverse the list */
-					reverseList(&head);
+					reverseList(dllist);
 					printf("\n**Successfully reverse the list!\n");
 				}
 
@@ -419,7 +421,7 @@ int main(void)
 			case 11:
 			{
 				/* Calculate the sum of all elements */
-				return_val = sum(head, &sum_val);
+				return_val = sum(dllist, &sum_val);
 
 				// Check if return_val is not 0, which indicates list is empty
 				if (return_val != 0)
@@ -439,7 +441,7 @@ int main(void)
 			case 12:
 			{
 				/* Free the memory of the linked list */
-				freeList(&head);
+				freeList(dllist);
 
 				printf("\n**Successfully clear all elements in the list.\n");
 
@@ -458,8 +460,11 @@ int main(void)
 		}
 	}
 
-	/* Free the list allocated in memory */
-	freeList(&head);
+	/* Free the allocated memory for the complete list */
+	freeList(dllist);
+
+	/* Free the allocated memory for structure ddlist */
+	free(dllist);
 
 	return 0;
 }
