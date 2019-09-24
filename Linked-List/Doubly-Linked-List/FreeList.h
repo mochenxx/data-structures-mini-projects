@@ -16,10 +16,10 @@
 /*
  * This function frees the memory of the singly linked list
  *
- * @param[in] head_ref - a reference (pointer to pointer) to the head of a list
+ * @param[in] dllist - pointer to the doubly linked list
  *
  * @returns - none
  */
-void freeList(struct Node** head_ref);
+void freeList(struct Dllist* dllist);
 
 #endif // !_FREELIST_H_

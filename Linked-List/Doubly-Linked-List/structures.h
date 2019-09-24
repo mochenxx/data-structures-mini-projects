@@ -18,4 +18,10 @@ struct Node {
 	struct Node* next;	// Pointer to next node in DLL
 	struct Node* prev;	// Pointer to previous node in DLL
 };
+
+/* Doubly linked list structure */
+struct Dllist {
+	struct Node* head;	// Pointer to head node in DLL
+	struct Node* tail;	// Pointer to tail node in DLL
+};
 #endif // !_STRUCTURES_H_
