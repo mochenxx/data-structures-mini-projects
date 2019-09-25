@@ -13,7 +13,7 @@ Data structures mini projects for learning sharing.
 - Compiler: Microsoft Visual C++ 2019
 
 ## Projects
-### Sorting project
+### Sorting Algorithms
 
 - This program creates four standard sorting algorithms: 
   * Selection Sort
@@ -26,7 +26,7 @@ Data structures mini projects for learning sharing.
   * Read user-defined arrays from a csv. file
 - C Source Code: [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
 
-### Array project
+### Array
 
 This projects achieves two goals in terms of simple lists, and implements frequently-used operations for lists.
   
@@ -118,6 +118,27 @@ struct Dllist {
 __C Source Code__
   * [Singly Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Linked-List/Singly-Linked-List)
   * [Doubly Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Linked-List/Doubly-Linked-List)
+  
+### Binary Search Tree
+- This project creates a binary search tree (BST) with user-defined sturcure.
+- Following is a representaion of BST node in C language:
+```
+/* Node structure of binary search tree */
+struct Node {
+	int key;			// node will store an integer
+	struct Node* left;		// left child
+	struct Node* right;		// right child
+};
+```
+- Avaiable functionalities are as below:
+  * Add new element in binary search tree (e.g. elements can be 2, 4, 10, etc.)
+  * Search for a certain element
+  * Remove element from binary tree
+  * Print element in ascending order
+  * Print element in descending order
+  * Destroy complete tree (delete all leaves in BST)
+- C Source Code:[Binary Search Tree](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Binary-Search-Tree)
+
 ## Contact
 
 You can reach me at mo.chen19@outlook.com for technical support or feel free to open an issue [here](https://github.com/mochenxx/data-structures-mini-projects/issues) :)
