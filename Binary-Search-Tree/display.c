@@ -17,10 +17,10 @@ void displayMainMenu(void)
 	printf("\n\n");
 	printf("----------------- Binary Search Tree -----------------\n\n");
 	printf("  %u) %s\n", i++, "Add element in the binary search tree");
-	printf("  %u) %s\n", i++, "Search for an element");
-	printf("  %u) %s\n", i++, "Remove element from binary tree");
-	printf("  %u) %s\n", i++, "Print element in ascending order");
-	printf("  %u) %s\n", i++, "Print element in descending order");
+	printf("  %u) %s\n", i++, "Search for a certain element");
+	printf("  %u) %s\n", i++, "Remove an element from binary tree");
+	printf("  %u) %s\n", i++, "Print elements in ascending order");
+	printf("  %u) %s\n", i++, "Print elements in descending order");
 	printf("  %u) %s\n", i++, "Delete complete tree");
 	printf("  %u) %s\n\n", i++, "QUIT the program");
 }
