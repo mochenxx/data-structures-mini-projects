@@ -135,8 +135,8 @@ struct Node {
   * Add new element in binary search tree (e.g. elements can be 2, 4, 10, etc.)
   * Search for a certain element
   * Remove element from binary tree
-  * Print element in ascending order
-  * Print element in descending order
+  * Print elements in ascending order
+  * Print elements in descending order
   * Destroy complete tree (delete all leaves in BST)
 - C Source Code
   * [Binary Search Tree](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Binary-Search-Tree)
