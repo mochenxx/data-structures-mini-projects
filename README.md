@@ -120,7 +120,7 @@ __C Source Code__
   * [Doubly Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Linked-List/Doubly-Linked-List)
   
 ### Binary Search Tree
-- This project creates a binary search tree (BST) with user-defined sturcure.
+- This project creates a binary search tree (BST) and implements binary search algorithm.
 - Following is a representaion of BST node in C language:
 ```
 /* Node structure of binary search tree */
