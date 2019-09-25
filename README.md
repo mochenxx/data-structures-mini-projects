@@ -24,7 +24,8 @@ Data structures mini projects for learning sharing.
 - Program can sort array through two ways:
   * Input an integer array from keyboard
   * Read user-defined arrays from a csv. file
-- C Source Code: [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
+- C Source Code
+  * [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
 
 ### Array
 
@@ -137,7 +138,8 @@ struct Node {
   * Print element in ascending order
   * Print element in descending order
   * Destroy complete tree (delete all leaves in BST)
-- C Source Code:[Binary Search Tree](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Binary-Search-Tree)
+- C Source Code
+  * [Binary Search Tree](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Binary-Search-Tree)
 
 ## Contact
 
