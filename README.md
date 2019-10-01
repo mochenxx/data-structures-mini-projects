@@ -119,7 +119,47 @@ struct Dllist {
 __C Source Code__
   * [Singly Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Linked-List/Singly-Linked-List)
   * [Doubly Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Linked-List/Doubly-Linked-List)
+
+### Stack
+This project creates stack data structure and implements a stack in two ways:
+  - Using array
+  - Using linked list
+
+#### Implementing Stack using Array
+- Following is a representaion of Stack using array in C language:
+```
+/* A structure to represent a stack */
+struct Stack
+{
+	unsigned int capacity;		// Maximum size of stack
+	int top;			// Top index in stack
+	int* array;			// Pointer to array
+};
+
+```
+#### Implementing Stack using Linked List
+- Following is a representaion of Stack using linked list in C language:
+```
+/* A structure to represent a stack node */
+struct StackNode {
+	int data;			// Stack node contains integer data
+	struct StackNode* next;		// Pointer to the next stack pointer
+};
+
+```
+Avaiable Operations
+1. Push: Adds an item to the stack. If the stack is full, then it is said to be an Overflow condition.
+2. Pop: Remove an iten frim the stack. The items are poped are in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.
+3. isEmpty: Returns true if stack is empty, else false
+4. isFull: Returns true if stack is full, else false.
+5. Peek: Returns the top element of stack.
+6. Display stack both in forward and backward order.
+7. Reverse: Reverse the stack
   
+__C Source Code__
+  * [Stack using Array](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Stack/Stack-using-array)
+  * [Stack using Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Stack/Stack-using-linked-list)
+
 ### Binary Search Tree
 - This project creates a binary search tree (BST) and implements binary search algorithm.
 - Following is a representaion of BST node in C language:
@@ -140,6 +180,7 @@ struct Node {
   * Destroy complete tree (delete all leaves in BST)
 - C Source Code
   * [Binary Search Tree](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Binary-Search-Tree)
+
 
 ## Contact
 
