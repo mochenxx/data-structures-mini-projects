@@ -5,7 +5,7 @@
  *
  * Copyright: 2019
  *
- * Description: Stack data structure mini program
+ * Description: Stack data structure mini project
  */
 
 #include <stdlib.h>
