@@ -1,131 +1,82 @@
-/*
- * File name: stackHelper.h
- *
- * Author: Mo Chen
- *
- * Description: Header file for stack helper functions
- */
-
-#ifndef _STACKHELPER_H_
-#define _STACKHELPER_H_
+#ifndef _STACKHELPER_H
+#define _STACKHELPER_H
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 
-// Data structure for stack
-struct Stack
-{
-	unsigned int capacity;
-	int top;
-	int* array;
+// A structure to represent a stack node
+struct StackNode {
+	int data;				// Stack node contains integer data
+	struct StackNode* next;	// Pointer to the next stack pointer
 };
 
-/*
- * This function initializes a stack with a given capacity
- * and returns the stack pointer
+/* 
+ * This functions creates a new node to the stack with a given data,
+ * and returns this newly created stack node
  *
- * param[in] capacity - maximum capacity of the stack
+ * @param[in] data - a given integer number
  *
- * returns - new stack pointer
+ * @returns - pointer to this newly created stack node
  */
-struct Stack* createStack(unsigned int capacity);
+struct StackNode* newNode(int data);
 
 /*
- * This function returns the size of the stack
+ * This functions checks if a given stack is empty
  *
- * param[in] stack - pointer to a given stack
+ * @param[in] top - pointer to top element of stack
  *
- * returns - size of the stack
+ * @returns - boolean value true if the stack is empty, else false
  */
-int size(struct Stack* stack);
+bool isEmpty(struct StackNode* top);
 
 /*
- * This function checks if the stack is empty or not
- * and returns the result
+ * This functions adds an item to stack with a given data
  *
- * param[in] stack - pointer to a given stack
+ * @param[in] top_ref - reference (pointer to pointer) to top node of stack
+ * @param[in] data - a given integer number
  *
- * returns - 1 if stack if empty, else 0.
+ * @returns - none
  */
-int isEmpty(struct Stack* stack);
+void push(struct StackNode** top_ref, int data);
 
 /*
- * This function checks if the stack is full or not
- * and returns the result
+ * This functions removes an item from stack,
+ * and returns the removed data
  *
- * param[in] stack - pointer to a given stack
+ * @param[in] top_ref - reference (pointer to pointer) to top Node of stack
  *
- * returns - 1 if stack if full, else 0.
+ * @returns - integer data of removed item
  */
-int isFull(struct Stack* stack);
+int pop(struct StackNode** top_ref, int* poppedVal);
 
 /*
- * This function adds an item to the stack
+ * This functions returns the top element from stack without removing it
  *
- * param[in] stack - pointer to a given stack
- * param[in] item - item to be added
+ * @param[in] top_ref - reference (pointer to pointer) to top Node of stack
  *
- * returns - none
+ * @returns - data of the top element from stack
  */
-void push(struct Stack* stack, int item);
+int peek(struct StackNode* top_ref, int* topVal);
 
 /*
- * This function gets the top from the stack without removing it, 
- * and pass the popped item value as an argument
+ * This functions display a stack in forward order
  *
- * param[in] stack - pointer to a given stack
- * param[in] pop_val - pointer to popped item value
+ * @param[in] top - pointer to top element of stack
  *
- * returns - 0 if there is no error, else -1.
+ * @returns - none
  */
-int peek(struct Stack* stack, int* top_val);
+void displayStack(struct StackNode* top);
 
 /*
- * This function removes an item from stack, 
- * and pass the popped item value as an argument
+ * This functions display a stack in backward order
  *
- * param[in] stack - pointer to a given stack
- * param[in] pop_val - pointer to popped item value
+ * @param[in] top - pointer to top element of stack
  *
- * returns - 0 if there is no error, else -1.
+ * @returns - none
  */
-int pop(struct Stack* stack, int* pop_val);
+void printReversedStack(struct StackNode* top);
 
-/*
- * This function display a stack in forward order
- *
- * param[in] stack - pointer to a given stack
- *
- * returns - none
- */
-void displayStack(struct Stack* stack);
+void reverseUsingWhile(struct StackNode** top_ref);
 
-/*
- * This function display a stack in backward order
- *
- * param[in] stack - pointer to a given stack
- *
- * returns - none
- */
-void printReversedStack(struct Stack* stack);
-
-/*
- * This function reverses a stack
- *
- * param[in] stack - pointer to a given stack
- *
- * returns - none
- */
-void reverse(struct Stack* stack);
-
-/*
- * This function free the memory allocated to a given stack
- *
- * param[in] stack - pointer to a given stack
- *
- * returns - none
- */
-void freeStack(struct Stack* stack);
-
-#endif // !_STACKHELPER_H_
+#endif // !_STACKHELPER_H
