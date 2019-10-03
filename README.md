@@ -5,6 +5,11 @@ Data structures mini projects for learning sharing.
 
 - [Compatability](#compatability)
 - [Projects](#projects)
+  * [Array](#array)
+  * [Linked List](#linked-list)
+  * [Stack](#stack)
+  * [Sorting Algorithms](#sorting-algorithms)
+  * [Binary Search Tree](#binary-search-tree)
 - [Contact](#contact)
 
 ## Compatability
@@ -13,19 +18,6 @@ Data structures mini projects for learning sharing.
 - Compiler: Microsoft Visual C++ 2019
 
 ## Projects
-### Sorting Algorithms
-
-- This program creates four standard sorting algorithms: 
-  * Selection Sort
-  * Insertion Sort
-  * Bubble Sort
-  * Merge Sort 
-- Optimized approaches are added to improve sorting performance in terms of time complexity
-- Program can sort array through two ways:
-  * Input an integer array from keyboard
-  * Read user-defined arrays from a csv. file
-- C Source Code
-  * [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
 
 ### Array
 
@@ -160,6 +152,20 @@ __C Source Code__
   * [Stack using Array](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Stack/Stack-using-array)
   * [Stack using Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Stack/Stack-using-linked-list)
 
+### Sorting Algorithms
+
+- This program creates four standard sorting algorithms: 
+  * Selection Sort
+  * Insertion Sort
+  * Bubble Sort
+  * Merge Sort 
+- Optimized approaches are added to improve sorting performance in terms of time complexity
+- Program can sort array through two ways:
+  * Input an integer array from keyboard
+  * Read user-defined arrays from a csv. file
+- C Source Code
+  * [Sorting](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Sorting)
+  
 ### Binary Search Tree
 - This project creates a binary search tree (BST) and implements binary search algorithm.
 - Following is a representaion of BST node in C language:
