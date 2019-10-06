@@ -8,6 +8,7 @@ Data structures mini projects for learning sharing.
   * [Array](#array)
   * [Linked List](#linked-list)
   * [Stack](#stack)
+  * [Queue](#queue)
   * [Sorting Algorithms](#sorting-algorithms)
   * [Binary Search Tree](#binary-search-tree)
 - [Contact](#contact)
@@ -141,7 +142,7 @@ struct StackNode {
 ```
 #### Avaiable Operations
 1. Push: Adds an item to the stack. If the stack is full, then it is said to be an Overflow condition.
-2. Pop: Remove an iten frim the stack. The items are poped are in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.
+2. Pop: Remove an iten frim the stack. The items are popped are in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition.
 3. isEmpty: Returns true if stack is empty, else false
 4. isFull: Returns true if stack is full, else false.
 5. Peek: Returns the top element of stack.
@@ -151,6 +152,36 @@ struct StackNode {
 __C Source Code__
   * [Stack using Array](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Stack/Stack-using-array)
   * [Stack using Linked List](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Stack/Stack-using-linked-list)
+
+### Queue
+
+This projects implements Queue data structure and corresponding operations for a queue.
+
+#### Implementation of Queue
+- Following is a representaion of Queue using array in C language:
+```
+/* Data structure for a queue */
+struct Queue 
+{
+	int front;				// Index of the front element of queue
+	int	rear;				// Index of the rear element of queue
+	int size;				// Number of current elements in queue
+	unsigned int capacity;	// Maximum capacity of queue
+	int* array;
+};
+```
+
+#### Avaiable Operations
+1. Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
+2. Dequeue: Removes an item from the queue. The items are dequeued are the same order in which they are enqueued. If the queue is empty, then it is said to be an Underflow condition.
+3. isEmpty: Retruns true if the queue is empty, else false.
+4. isFull: Returns true if the queue is full, else false.
+5. queueFront: Returns the front element of queue
+6. queueRear: Returns the rear element of queue
+7. Display queue in forward order using circular traversal
+
+__C Source Code__
+  * [Queue](https://github.com/mochenxx/data-structures-mini-projects/tree/master/Queue)
 
 ### Sorting Algorithms
 
