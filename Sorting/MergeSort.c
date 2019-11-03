@@ -177,3 +177,37 @@ void mergeSort(int arr[], unsigned int l, unsigned int r)
 		merge(arr, l, mid, r);
 	}
 }
+
+
+void mergeSortOptimized(int arr[], unsigned int l, unsigned int r)
+{
+	// Arguments consistency check
+	if (NULL == arr)
+	{
+		return;
+	}
+
+	unsigned int mid;
+
+	if (l >= r)
+	{
+		return;
+	}
+	else
+	{
+		// middle index of the sub-array of the arr
+		mid = l + (r - l) / 2;
+
+		// Merge sort the first and the second halves
+		mergeSort(arr, l, mid);
+		mergeSort(arr, mid + 1, r);
+
+		// check if arr[mid] is greater than arr[mid+1]
+		// if not, no need to merge them
+		if (arr[mid] > arr[mid + 1])
+		{
+			// Merge two sorted parts
+			merge(arr, l, mid, r);
+		}
+	}
+}
